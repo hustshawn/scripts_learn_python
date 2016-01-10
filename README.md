@@ -1,5 +1,5 @@
-# scripts_learn_python
+## Try and Memo
 
-This repositry contains the codes that I learn Python essentials.
+This repositry contains the codes that I learn Python essentials, and help me track the record.
 
-Nowadays, I become more and more afraid of my machine or disk would accidently crash someday. But who knows.
+Basically, it is organized by years, and it will contains *.py, *.md
