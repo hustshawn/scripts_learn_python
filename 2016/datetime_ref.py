@@ -32,6 +32,13 @@ print(bj_dt)
 
 
 def to_timestamp(dt_str, tz_str):
+	"""
+	The function to conevrt the random datetime to its UTC corresponding timestamp.
+	1. Transfer the args from str to useful datetime , int(for tz_str)
+	2. Get the UTC datetime;
+	3. Replace the timezone info for the datetime in step 2;
+	4. Transfer to the timestamp.
+	"""
 
 	dt = datetime.strptime(dt_str, '%Y-%m-%d %H:%M:%S')
 	# dt_utc = dt - timedelta(hours=hours)
@@ -58,3 +65,15 @@ t1 = to_timestamp('2015-6-1 08:10:30', 'UTC+7:00')
 print(t1)
 t2 = to_timestamp('2015-5-31 16:10:30', 'UTC+09:00')
 print(t2)
+
+# datetime to get the date and time sepearately, and they can be combined 
+import datetime
+o
+t = datetime.time(1, 2, 3)
+print 't :', t
+
+d = datetime.date.today()
+print 'd :', d
+
+dt = datetime.datetime.combine(d, t)
+print 'dt:', dt
