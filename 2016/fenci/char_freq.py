@@ -21,26 +21,28 @@ Some other good reasons to ignore a particular guideline:
 
 When applying the guideline would make the code less readable, even for someone who is used to reading code that follows this PEP.
 To be consistent with surrounding code that also breaks it (maybe for historic reasons) -- although this is also an opportunity to clean up someone else's mess (in true XP style).
-Because the code in question predates the introduction of the guideline and there is no other reason to be modifying that code.
+Because the code in question predates the introduction of the guideline and there is no other reason to be modifying that code .
 When the code needs to remain compatible with older versions of Python that don't support the feature recommended by the style guide.
 """
-# print(txt)
 
-freq = {}
-array = txt.split()
-for word in array:
-	word = word.translate(None,"(){}<>\t")
-	if not word:
-		continue
-	else:
-		# key = word.capitalize()
-		key = word.lower()
-		if key not in freq:
-		# if not freq.has_key(key):
-			freq[key] = 1
+def calculate_word_freq(txt):
+	freq = {}
+	DELIMITERS = "()[]-{}<>.,;\"\'!@#$%^&*|"
+	segments = txt.split()
+	for word in segments:
+		word = word.translate(None, DELIMITERS)
+		if not word:
+			continue
 		else:
-			freq[key] += 1
-result = sorted(freq.items(), key=lambda x:x[1], reverse=True)
-# print(result)
+			key = word.lower()
+			if key not in freq:
+				freq[key] = 1
+			else:
+				freq[key] += 1
+	result = sorted(freq.items(), key=lambda x:x[1], reverse=True)
+	return result
+
+result = calculate_word_freq(txt)
+
 for r in result:
-	print(r[0],'==>', r[1])
+	print(r[0] + '==>' + str(r[1]))
